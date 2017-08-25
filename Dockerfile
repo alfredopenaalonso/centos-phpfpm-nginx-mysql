@@ -27,7 +27,7 @@ RUN yum install -y MariaDB-server MariaDB-client
 
 # Install, configure and start PHP-FPM and XDebug
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-RUN yum install -y --enablerepo=remi --enablerepo=remi-php56 php-fpm php-mysql php-mbstring php-devel php-pear
+RUN yum install -y --enablerepo=remi --enablerepo=remi-php71 php-fpm php-mysql php-mbstring php-devel php-pear
 RUN yum install -y gcc gcc-c++ autoconf automake
 RUN pecl install Xdebug
 RUN sed -i '/^;cgi.fix_pathinfo=1$/c\cgi.fix_pathinfo=0' /etc/php.ini
