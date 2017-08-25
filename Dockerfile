@@ -9,10 +9,21 @@ RUN yum -y update
 RUN yum install -y epel-release
 
 # Install, configure and start Nginx
-RUN yum install -y nginx
+RUN echo "[nginx]" > /etc/yum.repos.d/nginx.repo
+RUN echo "name=nginx repo" >> /etc/yum.repos.d/nginx.repo
+RUN echo "baseurl=http://nginx.org/packages/centos/7/\$basearch" >> /etc/yum.repos.d/nginx.repo
+RUN echo "gpgcheck=0" >> /etc/yum.repos.d/nginx.repo
+RUN echo "enabled=1" >> /etc/yum.repos.d/nginx.repo
+RUN yum --showduplicates list nginx
+RUN yum install -y nginx-1.12.1
 
 # Install and start MariaDB
-RUN yum install -y mariadb-server mariadb
+RUN echo "[mariadb]" > /etc/yum.repos.d/mariadb.repo
+RUN echo "name = MariaDB" >> /etc/yum.repos.d/mariadb.repo
+RUN echo "baseurl = http://yum.mariadb.org/10.2/centos7-amd64" >> /etc/yum.repos.d/mariadb.repo
+RUN echo "gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB" >> /etc/yum.repos.d/mariadb.repo
+RUN echo "gpgcheck=1" >> /etc/yum.repos.d/mariadb.repo
+RUN yum install -y MariaDB-server MariaDB-client
 
 # Install, configure and start PHP-FPM and XDebug
 RUN yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
