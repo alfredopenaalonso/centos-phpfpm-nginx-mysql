@@ -5,9 +5,8 @@ MAINTAINER Alfredo Peña Alonso <alfredopenaalonso@gmail.com>
 # Update packages
 RUN yum -y update
 
-# Install EPEL and Git
+# Install EPEL
 RUN yum install -y epel-release
-RUN yum install -y git
 
 # Install, configure and start Nginx
 RUN yum install -y nginx
