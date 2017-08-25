@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:latest
 
 MAINTAINER Alfredo Peña Alonso <alfredopenaalonso@gmail.com>
 
