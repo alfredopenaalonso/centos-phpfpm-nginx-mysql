@@ -11,4 +11,4 @@ If you have improvements or suggestions please open an issue or pull request on 
 ### Versioning
 | Docker Tag | GitHub Release | Nginx Version | PHP Version | MariaDB Version |
 |-----|-------|-----|--------|--------|
-| latest | Master Branch |latest | 5.6 | latest |
+| latest | Master Branch | 1.12.1 | 7.1 | 10.2 |
