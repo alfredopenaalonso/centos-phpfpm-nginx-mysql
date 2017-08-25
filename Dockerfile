@@ -12,12 +12,8 @@ RUN yum install -y git
 # Install, configure and start Nginx
 RUN yum install -y nginx
 RUN echo "include /data/nginx/sites-enabled/*;" > /etc/nginx/conf.d/sites-enabled.conf
-RUN systemctl start nginx
-RUN systemctl enable nginx
 
 # Install and start MariaDB
 RUN yum install -y mariadb-server mariadb
-RUN systemctl start mariadb
-RUN systemctl enable mariadb
 
-EXPOSE 80 443
+EXPOSE 80 443 3036
